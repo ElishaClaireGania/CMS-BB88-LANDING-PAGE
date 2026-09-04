@@ -1,0 +1,38 @@
+{
+  "logo": {
+    "src": "assets/logo/logo bb88.png",
+    "alt": "BB88 Logo",
+    "id": "main-logo"
+  },
+  "cta": {
+    "text": "Get Started",
+    "url": "/get-started",
+    "id": "cta-button"
+  },
+  "links": [
+    {
+      "text": "Home",
+      "url": "#hero"
+    },
+    {
+      "text": "About",
+      "url": "#about"
+    },
+    {
+      "text": "Services",
+      "url": "#services"
+    },
+    {
+      "text": "Portfolio",
+      "url": "#portfolio"
+    },
+    {
+      "text": "Team",
+      "url": "#team"
+    },
+    {
+      "text": "Contact",
+      "url": "#contact"
+    }
+  ]
+}
