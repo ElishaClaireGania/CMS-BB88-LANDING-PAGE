@@ -3,11 +3,7 @@ const DATA_URL = "./src/data/about.json";
 const renderAbout = ({ services, about }) => {
   const { title: servicesTitle, icons } = services;
 
-  const {
-    title: aboutTitle,
-    subtitle,
-    paragraphs
-  } = about;
+  const { title: aboutTitle, subtitle, paragraphs } = about;
 
   return `
     <div class="about-bg absolute inset-0 z-0">
@@ -48,7 +44,7 @@ const renderAbout = ({ services, about }) => {
                   </span>
 
                 </div>
-              `
+              `,
             )
             .join("")}
 
@@ -70,7 +66,7 @@ const renderAbout = ({ services, about }) => {
               <p>
                 ${paragraph}
               </p>
-            `
+            `,
           )
           .join("")}
 
@@ -93,7 +89,6 @@ export const loadAbout = async () => {
     const aboutSection = document.getElementById("about");
 
     aboutSection.innerHTML = renderAbout(data);
-
   } catch (error) {
     console.error("About Section Error:", error);
   }
