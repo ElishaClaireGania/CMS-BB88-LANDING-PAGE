@@ -1,0 +1,79 @@
+<?php
+require_once dirname(__DIR__) . '/../config/database.php';
+require_once dirname(__DIR__) . '/../includes/auth.php';
+require_once dirname(__DIR__) . '/../includes/function.php'; 
+
+session_start();
+
+
+if (isLoggedIn()) {
+    header('Location: /src/admin/index.php');
+    exit;
+}
+
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = sanitize($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
+
+    if (empty($username) || empty($password)) {
+        $error = 'Username and password are required.';
+    } else {
+        $pdo = getPDO();
+        $stmt = $pdo->prepare(
+            'SELECT id, username, password_hash FROM admins WHERE username = ?'
+        );
+        $stmt->execute([$username]);
+        $admin = $stmt->fetch();
+
+        if ($admin && password_verify($password, $admin['password_hash'])) {
+            $_SESSION['admin_id'] = $admin['id'];
+            $_SESSION['admin_username'] = $admin['username'];
+            header('Location: /src/admin/index.php');
+            exit;
+        } else {
+            $error = 'Invalid username or password.';
+        }
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        .sub a { color: #1e88e5; text-decoration: none; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <h1>Admin Login</h1>
+
+    <?php if ($error): ?>
+        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+
+    <form method="POST">
+        <label for="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            autocomplete="username"
+            value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
+        >
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required autocomplete="current-password">
+
+        <button class="btn" type="submit">Log In</button>
+    </form>
+
+    <p class="sub"><a href="/src/admin/register.php">Create an admin account &rarr;</a></p>
+</div>
+</body>
+</html>
