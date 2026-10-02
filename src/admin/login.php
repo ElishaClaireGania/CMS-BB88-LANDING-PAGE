@@ -1,7 +1,7 @@
 <?php
-require_once dirname(__DIR__) . '/../config/database.php';
-require_once dirname(__DIR__) . '/../includes/auth.php';
-require_once dirname(__DIR__) . '/../includes/function.php'; 
+require_once dirname(__DIR__, 2) . '/config/database.php';
+require_once dirname(__DIR__, 2) . '/includes/auth.php';
+require_once dirname(__DIR__, 2) . '/includes/function.php'; 
 
 session_start();
 
