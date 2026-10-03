@@ -1,43 +1,3 @@
-<?php
-require_once dirname(__DIR__, 2) . '/config/database.php';
-require_once dirname(__DIR__, 2) . '/includes/auth.php';
-require_once dirname(__DIR__, 2) . '/includes/function.php'; 
-
-session_start();
-
-
-if (isLoggedIn()) {
-    header('Location: index.php');
-    exit;
-}
-
-$error = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = sanitize($_POST['username'] ?? '');
-    $password = $_POST['password'] ?? '';
-
-    if (empty($username) || empty($password)) {
-        $error = 'Username and password are required.';
-    } else {
-        $pdo = getPDO();
-        $stmt = $pdo->prepare(
-            'SELECT id, username, password_hash FROM admins WHERE username = ?'
-        );
-        $stmt->execute([$username]);
-        $admin = $stmt->fetch();
-
-        if ($admin && password_verify($password, $admin['password_hash'])) {
-            $_SESSION['admin_id'] = $admin['id'];
-            $_SESSION['admin_username'] = $admin['username'];
-            header('Location: index.php');
-            exit;
-        } else {
-            $error = 'Invalid username or password.';
-        }
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,19 +15,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn { width: 100%; padding: 0.65rem; background: #1e88e5; color: white; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; }
         .btn:hover { background: #1a6aab; }
         .error { background: rgba(248,81,73,.1); border: 1px solid #f85149; border-radius: 6px; padding: 0.6rem 0.8rem; font-size: .85rem; color: #f85149; margin-bottom: 1rem; }
+        .success { background: rgba(63,185,80,.1); border: 1px solid #3fb950; border-radius: 6px; padding: 0.6rem 0.8rem; font-size: .85rem; color: #3fb950; margin-bottom: 1rem; }
         .sub { text-align: center; margin-top: 1rem; font-size: .85rem; color: #8b949e; }
         .sub a { color: #1e88e5; text-decoration: none; }
+        .back-link { display: block; text-align: center; margin-top: 0.5rem; font-size: 0.8rem; color: #8b949e; text-decoration: none; }
     </style>
 </head>
 <body>
 <div class="card">
     <h1>Admin Login</h1>
 
-    <?php if ($error): ?>
-        <div class="error"><?= htmlspecialchars($error) ?></div>
-    <?php endif; ?>
+    @if (session('success'))
+        <div class="success">{{ session('success') }}</div>
+    @endif
 
-    <form method="POST">
+    @if ($errors->any())
+        <div class="error">{{ $errors->first() }}</div>
+    @endif
+
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
         <label for="username">Username</label>
         <input
             type="text"
@@ -75,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             name="username"
             required
             autocomplete="username"
-            value="<?= htmlspecialchars($_POST['username'] ?? '') ?>"
+            value="{{ old('username') }}"
         >
 
         <label for="password">Password</label>
@@ -84,7 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button class="btn" type="submit">Log In</button>
     </form>
 
-    <p class="sub"><a href="register.php">Create an admin account &rarr;</a></p>
+    <p class="sub"><a href="{{ route('register') }}">Create an admin account &rarr;</a></p>
+    <a href="{{ route('home') }}" class="back-link">&larr; Back to Landing Page</a>
 </div>
 </body>
 </html>

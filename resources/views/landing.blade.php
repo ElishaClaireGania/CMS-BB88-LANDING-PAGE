@@ -6,11 +6,11 @@
     <title>BB88 LANDING PAGE</title>
 
     <!-- SCRIPTS -->
-    <script src="./scripts/nav-active.js" defer></script>
-    <script src="./scripts/portfolio.js" defer></script>
-    <script type="module" src="./scripts/app.js"></script>
-    <script src="./scripts/hamburg.js" defer></script>
-    <script src="./scripts/footer.js" defer></script>
+    <script src="{{ asset('scripts/nav-active.js') }}" defer></script>
+    <script src="{{ asset('scripts/portfolio.js') }}" defer></script>
+    <script type="module" src="{{ asset('scripts/app.js') }}"></script>
+    <script src="{{ asset('scripts/hamburg.js') }}" defer></script>
+    <script src="{{ asset('scripts/footer.js') }}" defer></script>
 
     <!-- STYLESHEETS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,22 +23,21 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-    <link rel="icon" type="image/x-icon" href="assets/picture/logo1.png" />
-    <link rel="stylesheet" href="./src/styles.css" />
-    <link rel="stylesheet" href="./dist/output.css" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/picture/logo1.png') }}" />
+    <link rel="stylesheet" href="{{ asset('src/styles.css') }}" />
+    <link rel="stylesheet" href="{{ asset('dist/output.css') }}" />
   </head>
 
-  
   <body>
     <div id="hero-wrapper" class="relative overflow-hidden w-full">
       <div class="hero-bg absolute inset-0 z-0">
         <img
-          src="assets/bg/background 1.png"
+          src="{{ asset('assets/bg/background 1.png') }}"
           alt=""
           class="hero-bg-image w-full h-full object-cover"
         />
         <img
-          src="assets/bg/vector1.png"
+          src="{{ asset('assets/bg/vector1.png') }}"
           alt=""
           class="hero-vector-overlay absolute bottom-0 right-0 pointer-events-none z-2"
         />
@@ -49,7 +48,7 @@
         <nav class="nav-links relative">
           <div class="main-logo md:w-auto flex justify-center md:justify-start">
             <img
-              src="assets/logo/logo bb88.png"
+              src="{{ asset('assets/logo/logo bb88.png') }}"
               alt="BB88 Logo"
               id="main-logo"
             />
@@ -74,6 +73,7 @@
             <a href="#portfolio">Portfolio</a>
             <a href="#team">Team</a>
             <a href="#contact">Contact</a>
+            <a href="{{ route('login') }}" class="text-sm opacity-75 hover:opacity-100">Admin</a>
           </div>
         </nav>
       </header>
@@ -87,8 +87,8 @@
           <h1>WELCOME TO BB88</h1>
           <p>Quickly start your project now and set the stage for success</p>
           <div class="btn-group flex justify-center gap-4">
-            <a href="" class="btn btn-primary">Get Started</a>
-            <a href="" class="btn btn-secondary">Watch Video</a>
+            <a href="#about" class="btn btn-primary">Get Started</a>
+            <a href="#portfolio" class="btn btn-secondary">Watch Video</a>
           </div>
         </div>
         <div
@@ -97,35 +97,35 @@
       </section>
     </div>
 
-    <!-- ABOUT SECTION - Claire & Kim-->
+    <!-- ABOUT SECTION -->
     <section
       class="about relative z-10 w-full flex flex-col items-center"
       id="about"
     >
     </section>
 
-    <!-- SERVICES SECTION - Kim -->
+    <!-- SERVICES SECTION -->
     <div id="services" class="bg-services relative w-full overflow-hidden">
       <img
-        src="assets/vector/vector2.png"
+        src="{{ asset('assets/vector/vector2.png') }}"
         alt=""
         class="service-decor top-left"
       />
 
       <img
-        src="assets/vector/vector2.0.png"
+        src="{{ asset('assets/vector/vector2.0.png') }}"
         alt=""
         class="service-decor top-right"
       />
 
       <img
-        src="assets/vector/vector2.1.png"
+        src="{{ asset('assets/vector/vector2.1.png') }}"
         alt=""
         class="service-decor bottom-left"
       />
 
       <img
-        src="assets/vector/vector2.2.png"
+        src="{{ asset('assets/vector/vector2.2.png') }}"
         alt=""
         class="service-decor bottom-right"
       />
@@ -139,7 +139,7 @@
         <div class="card-container">
           <div class="left-card">
             <img
-              src="./assets/vector/Digital Marketing Management vector.png"
+              src="{{ asset('assets/vector/Digital Marketing Management vector.png') }}"
               alt="Digital Marketing Management"
             />
           </div>
@@ -171,7 +171,7 @@
 
           <div class="right-card">
             <img
-              src="./assets/vector/System Solutions & Management vector.png"
+              src="{{ asset('assets/vector/System Solutions & Management vector.png') }}"
               alt="System Solutions & Management"
             />
           </div>
@@ -186,49 +186,49 @@
         <div class="carousel-track gap-8" id="carousel-track">
           <div class="carousel-item w-25 h-full">
             <img
-              src="assets/logo/logo1.png"
+              src="{{ asset('assets/logo/logo1.png') }}"
               alt="Logo 1"
               class="max-h-25 max-w-25"
             />
           </div>
           <div class="carousel-item w-25 h-full">
             <img
-              src="assets/logo/logo2.png"
+              src="{{ asset('assets/logo/logo2.png') }}"
               alt="Logo 2"
               class="max-h-25 max-w-25"
             />
           </div>
           <div class="carousel-item w-25 h-full">
             <img
-              src="assets/logo/logo3.png"
+              src="{{ asset('assets/logo/logo3.png') }}"
               alt="Logo 3"
               class="max-h-25 max-w-25"
             />
           </div>
           <div class="carousel-item w-25 h-full">
             <img
-              src="assets/logo/logo 4.png"
+              src="{{ asset('assets/logo/logo 4.png') }}"
               alt="Logo 4"
               class="max-h-25 max-w-25"
             />
           </div>
           <div class="carousel-item w-25 h-full">
             <img
-              src="assets/logo/logo 5.png"
+              src="{{ asset('assets/logo/logo 5.png') }}"
               alt="Logo 5"
               class="max-h-25 max-w-25"
             />
           </div>
           <div class="carousel-item w-25 h-full">
             <img
-              src="assets/logo/logo 6.png"
+              src="{{ asset('assets/logo/logo 6.png') }}"
               alt="Logo 6"
               class="max-h-25 max-w-25"
             />
           </div>
           <div class="carousel-item w-25 h-full">
             <img
-              src="assets/logo/logo 7.png"
+              src="{{ asset('assets/logo/logo 7.png') }}"
               alt="Logo 7"
               class="max-h-25 max-w-25"
             />
@@ -242,7 +242,7 @@
     </div>
     <div class="relative w-full h-2 bg-[#48887b] z-20"></div>
 
-    <!-- PORTFOLIO SECTION - Claire -->
+    <!-- PORTFOLIO SECTION -->
     <div
       class="img-container relative w-full h-full min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center m-0 p-0"
       id="bg-portfolio"
@@ -280,23 +280,21 @@
       </section>
     </div>
 
-    <!-- TEAM SECTION - Kim -->
+    <!-- TEAM SECTION -->
     <section class="team relative overflow-hidden w-full" id="team">
       <div class="team-container"></div>
     </section>
 
-    <!-- RECENT POSTS SECTION - Shane -->
+    <!-- RECENT POSTS SECTION -->
     <section class="recent-posts relative w-full overflow-hidden" id="recent-posts">
     </section>
 
-    <!-- CONTACT SECTION - Shane -->
+    <!-- CONTACT SECTION -->
     <section class="contact relative w-full z-10" id="contact">
     </section>
 
-    <!-- FOOTER SECTION - Shane -->
+    <!-- FOOTER SECTION -->
     <footer class="w-full relative z-10">
     </footer>
-
-    <!-- SAMPLE FOR COMMIT -->
   </body>
 </html>

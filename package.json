@@ -13,8 +13,8 @@
   },
   "scripts": {
     "test": "echo \"No tests configured yet\" && exit 0",
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/output.css --minify",
-    "watch": "tailwindcss -i ./src/styles.css -o ./dist/output.css --watch"
+    "build": "tailwindcss -i ./public/src/styles.css -o ./public/dist/output.css --minify",
+    "watch": "tailwindcss -i ./public/src/styles.css -o ./public/dist/output.css --watch"
   },
   "repository": {
     "type": "git",
