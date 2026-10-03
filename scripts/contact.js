@@ -1,5 +1,50 @@
 const DATA_URL = "./src/data/contact.json";
 
+const fallbackContactData = {
+  vectors: {
+    topLeft: "./assets/bg/vector5.png",
+    bottomRight: "./assets/bg/vector 5.0.png",
+  },
+  header: {
+    title: "Contact",
+    subtitle:
+      "For immediate assistance, contact us 9:00 AM - 6:00 PM<br />to address any emergency needs.",
+  },
+  mapUrl:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3851.4443901614945!2d120.588888!3d15.133333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f24df45214ab%3A0x6bd6c7e2b1090be4!2sPlaza%20Victoria%2C%20Angeles%2C%20Pampanga!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph",
+  infoPills: [
+    {
+      iconClass: "fa-solid fa-phone",
+      label: "Phone:",
+      value: "+63 45 963 2025",
+      isDesc: false,
+    },
+    {
+      iconClass: "fa-solid fa-envelope",
+      label: "Email:",
+      value: "info@bb88advertising.com",
+      isDesc: false,
+    },
+    {
+      iconClass: "fa-solid fa-clock",
+      label: "Open Hours:",
+      value: "Mon-Sat: 9:00 AM - 6:00 PM",
+      isDesc: false,
+    },
+    {
+      iconClass: "fa-solid fa-location-dot",
+      label: "Location:",
+      value:
+        "Unit D, 2nd Floor Plaza Victoria Bldg., Sto. Rosario St.,<br />Sto. Domingo, Angeles City 2009 Philippines",
+      isDesc: true,
+    },
+  ],
+  footer: {
+    companyName: "BB 88 ADVERTISING",
+    subTitle: "AND DIGITAL SOLUTIONS INC.",
+  },
+};
+
 const renderContact = (data) => {
   const { vectors, header, mapUrl, infoPills, footer } = data;
 

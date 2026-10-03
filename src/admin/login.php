@@ -7,7 +7,7 @@ session_start();
 
 
 if (isLoggedIn()) {
-    header('Location: /src/admin/index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($admin && password_verify($password, $admin['password_hash'])) {
             $_SESSION['admin_id'] = $admin['id'];
             $_SESSION['admin_username'] = $admin['username'];
-            header('Location: /src/admin/index.php');
+            header('Location: index.php');
             exit;
         } else {
             $error = 'Invalid username or password.';
@@ -43,8 +43,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
+    <title>Admin Login - BB88 CMS</title>
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, sans-serif; background: #0d1117; color: #e6edf3; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 2rem; width: 100%; max-width: 380px; }
+        h1 { font-size: 1.4rem; margin-bottom: 1.5rem; text-align: center; }
+        label { display: block; font-size: 0.85rem; margin-bottom: 4px; color: #8b949e; }
+        input { width: 100%; padding: 0.6rem 0.8rem; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #e6edf3; font-size: 1rem; margin-bottom: 1rem; }
+        input:focus { outline: none; border-color: #1e88e5; }
+        .btn { width: 100%; padding: 0.65rem; background: #1e88e5; color: white; border: none; border-radius: 6px; font-size: 1rem; cursor: pointer; }
+        .btn:hover { background: #1a6aab; }
+        .error { background: rgba(248,81,73,.1); border: 1px solid #f85149; border-radius: 6px; padding: 0.6rem 0.8rem; font-size: .85rem; color: #f85149; margin-bottom: 1rem; }
+        .sub { text-align: center; margin-top: 1rem; font-size: .85rem; color: #8b949e; }
         .sub a { color: #1e88e5; text-decoration: none; }
     </style>
 </head>
@@ -73,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button class="btn" type="submit">Log In</button>
     </form>
 
-    <p class="sub"><a href="/src/admin/register.php">Create an admin account &rarr;</a></p>
+    <p class="sub"><a href="register.php">Create an admin account &rarr;</a></p>
 </div>
 </body>
 </html>

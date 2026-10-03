@@ -7,7 +7,7 @@ function requireLogin(): void
     }
 
     if (empty($_SESSION['admin_id'])) {
-        header('Location: /src/admin/login.php');
+        header('Location: login.php');
         exit;
     }
 }

@@ -3,8 +3,8 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
 try {
-    require_once dirname(__DIR__) . '/../config/database.php';
-    require_once dirname(__DIR__) . '/../includes/function.php';
+    require_once dirname(__DIR__, 2) . '/config/database.php';
+    require_once dirname(__DIR__, 2) . '/includes/function.php';
 
     if ($_SERVER['REQUEST_METHOD'] !== 'GET'){
         http_response_code(405);
@@ -23,11 +23,12 @@ try {
     $cleanSection = sanitize($section);
     $content = getSectionContent($pdo, $cleanSection);
 
-    echo json_encode([$content]);
-}catch (\Throwable $e){
+    echo json_encode($content, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+} catch (\Throwable $e) {
     http_response_code(500);
-    echo json_encode(['error' => 'Internal server error',
-    'message' => $e->getMessage()
+    echo json_encode([
+        'error' => 'Internal server error',
+        'message' => $e->getMessage()
     ]);
 }
 exit;

@@ -1,7 +1,34 @@
-import { initNavInteractions, initNavLinks } from "../main.js";
-const DATA_NAV = "/api/public/get-section.php?section=navbar";
+const DATA_NAV = "./src/data/navbar.json";
 
-// initNavLinks();
+const initNavLinks = () => {
+  const navLinks = document.querySelectorAll(".nav-links a");
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      document
+        .querySelector(".nav-links a.active")
+        ?.classList.remove("active");
+      this.classList.add("active");
+    });
+  });
+};
+
+const initNavInteractions = () => {
+  const menuOpenBtn = document.getElementById("menuOpenBtn");
+  const navLinks = document.getElementById("navLinks");
+  const closeBtn = document.getElementById("hamburger");
+
+  if (menuOpenBtn && navLinks) {
+    menuOpenBtn.addEventListener("click", () => {
+      navLinks.classList.add("open");
+    });
+  }
+
+  if (closeBtn && navLinks) {
+    closeBtn.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+    });
+  }
+};
 
 export const loadNavbarSection = async () => {
   try {

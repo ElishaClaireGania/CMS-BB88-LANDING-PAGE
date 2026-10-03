@@ -1,5 +1,29 @@
 const DATA_URL = "./src/data/recent-posts.json";
 
+const fallbackPosts = [
+  {
+    image: "./assets/picture/picture1.png",
+    category: "Politics",
+    title: "E-Commerce's Impact on Marketing:",
+    description: "Harnessing Online Channels to Boost Sales and Reach New Customers",
+    link: "#",
+  },
+  {
+    image: "./assets/picture/picture2.png",
+    category: "Sports",
+    title: "The Rise of Mobile Marketing:",
+    description: "Creating Mobile-Optimized Campaigns to Reach Customers on-the-go",
+    link: "#",
+  },
+  {
+    image: "./assets/picture/picture3.png",
+    category: "Entertainment",
+    title: "The Rise of Mobile Marketing:",
+    description: "Creating Mobile-Optimized Campaigns to Reach Customers on-the-go",
+    link: "#",
+  },
+];
+
 const createCards = (posts) =>
   posts
     .map(

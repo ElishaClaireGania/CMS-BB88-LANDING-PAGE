@@ -2,6 +2,34 @@
 document.addEventListener("DOMContentLoaded", () => {
   const DATA_URL = "./src/data/footer.json";
 
+  const fallbackFooterData = {
+    socialTitle: "Follow us on",
+    socialLinks: [
+      {
+        platform: "Facebook",
+        url: "#",
+        iconClass: "fa-brands fa-facebook-f text-xs",
+      },
+      {
+        platform: "Instagram",
+        url: "#",
+        iconClass: "fa-brands fa-instagram text-xs",
+      },
+      {
+        platform: "X (Twitter)",
+        url: "#",
+        iconClass: "fa-brands fa-x text-xs",
+      },
+      {
+        platform: "LinkedIn",
+        url: "#",
+        iconClass: "fa-brands fa-linkedin-in text-xs",
+      },
+    ],
+    copyrightText:
+      "©2026 BB 88 Advertising & Digital Solutions Inc., All Rights Reserved. &nbsp;|&nbsp; Designed & Developed by BB 88 Advertising and Digital Solutions Inc.",
+  };
+
   const createSocialLinks = (links) =>
     links
       .map(

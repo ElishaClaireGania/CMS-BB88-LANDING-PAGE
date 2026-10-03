@@ -504,7 +504,7 @@ nav {
 /* TEAM */
 .team {
   @apply pt-25 px-6 font-sans;
-  background: url("/assets/bg/background4.png") center/cover no-repeat;
+  background: url("../assets/bg/background4.png") center/cover no-repeat;
 }
 
 .team-clouds {

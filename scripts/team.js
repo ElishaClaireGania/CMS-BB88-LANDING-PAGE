@@ -50,7 +50,7 @@ const renderTeam = ({ title, roles, defaultRole }) => {
 
   return `
       <img
-          src="/assets/vector/vector3.png"
+          src="./assets/vector/vector3.png"
           alt=""
           class="team-clouds">
       <div class="team-container">
@@ -94,7 +94,7 @@ const renderTeam = ({ title, roles, defaultRole }) => {
           <div class="team-illustration-wrapper">
 
               <img
-                  src="/assets/vector/vector4.png"
+                  src="./assets/vector/vector4.png"
                   class="team-people-vector"
                   alt="Our Team">
 
@@ -181,5 +181,3 @@ const initializeTeam = (roles) => {
     }
   });
 };
-
-loadTeam();

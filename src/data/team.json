@@ -6,49 +6,49 @@
     {
       "id": "software",
       "name": "Software Engineers",
-      "icon": "/assets/icon/ourteam(icon1).png",
+      "icon": "./assets/icon/ourteam(icon1).png",
       "row": 1,
       "description": "Our Software Engineers are responsible for building robust backend infrastructures, managing reliable databases, and integrating systems to ensure seamless and high-performing web and mobile platform integrations."
     },
     {
       "id": "web",
       "name": "Web Developers",
-      "icon": "/assets/icon/ourteam(icon2).png",
+      "icon": "./assets/icon/ourteam(icon2).png",
       "row": 1,
       "description": "Web Developers focus on implementing responsive, cutting-edge user interfaces using frameworks like Angular and Tailwind CSS. They bring design wireframes to life with dynamic client-side interactions."
     },
     {
       "id": "app",
       "name": "App Developers",
-      "icon": "/assets/icon/ourteam(icon3).png",
+      "icon": "./assets/icon/ourteam(icon3).png",
       "row": 1,
       "description": "App Developers specialize in creating powerful mobile applications (such as Flutter solutions) that ensure a consistent, secure, and intuitive user experience across both iOS and Android environments."
     },
     {
       "id": "graphic",
       "name": "Graphic Artists",
-      "icon": "/assets/icon/ourteam(icon4).png",
+      "icon": "./assets/icon/ourteam(icon4).png",
       "row": 1,
       "description": "Graphic Artists craft unique visual identities, logo kits, and brand assets. They make sure the color palettes, shapes, and marketing graphics are highly visually appealing and convey the exact message of your business."
     },
     {
       "id": "multimedia",
       "name": "Multimedia Artists",
-      "icon": "/assets/icon/ourteam(icon7).png",
+      "icon": "./assets/icon/ourteam(icon7).png",
       "row": 2,
       "description": "Multimedia Artists are similar to Graphic Artists, but they specialize in creating dynamic and interactive content like videos, 3D animations, and virtual reality experiences. They use a variety of software tools to create engaging and immersive experiences for users."
     },
     {
       "id": "writers",
       "name": "Creative Writers",
-      "icon": "/assets/icon/ourteam(icon5).png",
+      "icon": "./assets/icon/ourteam(icon5).png",
       "row": 2,
       "description": "Our Creative Writers design engaging copies, optimize SEO descriptions, draft professional project plans, and establish high-quality communication strategies tailored directly to your target audiences."
     },
     {
       "id": "director",
       "name": "Creative Director",
-      "icon": "/assets/icon/ourteam(icon6).png",
+      "icon": "./assets/icon/ourteam(icon6).png",
       "row": 2,
       "description": "The Creative Director steers the overall design direction and vision of the projects, aligning team output with client goals to build a powerful and highly-marketable branding narrative."
     }

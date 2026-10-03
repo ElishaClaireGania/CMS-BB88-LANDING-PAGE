@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if ($success): ?>
         <div class="success">
             <?= htmlspecialchars($success, ENT_QUOTES, 'UTF-8') ?> 
-            <a href="/src/admin/login.php" style="color: #1e88e5;">Log in</a>
+            <a href="login.php" style="color: #1e88e5;">Log in</a>
         </div>
     <?php endif; ?>
 
@@ -101,6 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button class="btn" type="submit">Create Account</button>
     </form>
+    <p class="sub"><a href="login.php">Already have an account? Log in &rarr;</a></p>
     <?php endif; ?>
 </div>
 </body>
